@@ -75,7 +75,7 @@ def preprocess():
     #vocab_size = len(vocab_processor.vocabulary_)
 
     print("Vocabulary Size: {:d}".format(len(vocab_processor.vocabulary_)))
-    print('Sequence Length:', max_l)
+    print('max Sequence Length:', max_l)
     print("y_text_shape:", y_text_train.shape)
     print("x_shape", x_train.shape)
     print("Train/Dev split: {:d}/{:d}".format(len(y_train), len(y_dev)))
