@@ -51,7 +51,7 @@ def preprocess():
 
     # Build vocabulary
     max_document_length = 75
-    vocab_processor = learn.preprocessing.VocabularyProcessor(max_document_length)#补0
+    vocab_processor = learn.preprocessing.VocabularyProcessor(max_document_length, min_frequency=60)#补0
     x = np.array(list(vocab_processor.fit_transform(x_text)))
     y_text = np.array(list(vocab_processor.fit_transform(y_text)))
     y = np.array(y)
