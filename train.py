@@ -13,7 +13,7 @@ from tensorflow.contrib import learn
 # ==================================================
 
 # Data loading params
-tf.flags.DEFINE_float("dev_sample_percentage", .1, "Percentage of the training data to use for validation")
+tf.flags.DEFINE_float("dev_sample_percentage", .0003, "Percentage of the training data to use for validation")
 tf.flags.DEFINE_string("positive_data_file", "./lang8_small/bbc_small.txt", "Data source for the positive data.")
 tf.flags.DEFINE_string("negative_data_file", "./lang8_small/lang8_small.txt", "Data source for the negative data.")
 
@@ -75,7 +75,7 @@ def preprocess():
     #vocab_size = len(vocab_processor.vocabulary_)
 
     print("Vocabulary Size: {:d}".format(len(vocab_processor.vocabulary_)))
-    print('max Sequence Length:', max_l)
+    print('Max Sequence Length in lang8 Data:', max_l)
     print("y_text_shape:", y_text_train.shape)
     print("x_shape", x_train.shape)
     print("Train/Dev split: {:d}/{:d}".format(len(y_train), len(y_dev)))
