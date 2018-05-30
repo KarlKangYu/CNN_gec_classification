@@ -19,6 +19,8 @@ Print parameters:
 ```
 optional arguments:
   -h, --help            show this help message and exit
+  --positive_data_file
+  --negative_data_file
   --embedding_dim EMBEDDING_DIM
                         Dimensionality of character embedding (default: 128)
   --filter_sizes FILTER_SIZES
