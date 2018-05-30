@@ -20,7 +20,7 @@ tf.flags.DEFINE_string("negative_data_file", "./lang8_small/lang8_small.txt", "D
 # Model Hyperparameters
 tf.flags.DEFINE_integer("embedding_dim", 128, "Dimensionality of character embedding (default: 128)")
 tf.flags.DEFINE_string("filter_sizes", "3,4,5", "Comma-separated filter sizes (default: '3,4,5')")
-tf.flags.DEFINE_integer("num_filters", 97, "Number of filters per filter size (default: 128)")
+tf.flags.DEFINE_integer("num_filters", 75, "Number of filters per filter size (default: 128)")
 tf.flags.DEFINE_float("dropout_keep_prob", 0.5, "Dropout keep probability (default: 0.5)")
 tf.flags.DEFINE_float("l2_reg_lambda", 0.0, "L2 regularization lambda (default: 0.0)")
 
@@ -50,7 +50,7 @@ def preprocess():
     x_text, y_text, y, max_l = data_loader.data_loader(FLAGS.negative_data_file, FLAGS.positive_data_file)
 
     # Build vocabulary
-    max_document_length = max_l
+    max_document_length = 75
     vocab_processor = learn.preprocessing.VocabularyProcessor(max_document_length)#补0
     x = np.array(list(vocab_processor.fit_transform(x_text)))
     y_text = np.array(list(vocab_processor.fit_transform(y_text)))
@@ -77,6 +77,7 @@ def preprocess():
     print("Vocabulary Size: {:d}".format(len(vocab_processor.vocabulary_)))
     print('Sequence Length:', max_l)
     print("y_text_shape:", y_text_train.shape)
+    print("x_shape", x_train.shape)
     print("Train/Dev split: {:d}/{:d}".format(len(y_train), len(y_dev)))
     return x_train, y_train, y_text_train, vocab_processor, x_dev, y_dev, y_text_dev
 
