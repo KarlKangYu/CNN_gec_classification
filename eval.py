@@ -36,7 +36,7 @@ print("")
 
 # CHANGE THIS: Load data. Load your own data here
 if FLAGS.eval_train:
-    x_raw, y_text_test, y_test, max_l = data_loader.data_loader(FLAGS.positive_data_file, FLAGS.negative_data_file)
+    x_raw, y_text_test, y_test, max_l = data_loader.data_loader(FLAGS.negative_data_file, FLAGS.positive_data_file)
     y_test = np.array(y_test)
 else:
     x_raw = ["a masterpiece four years in the making", "everything is off."]
