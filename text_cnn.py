@@ -105,7 +105,7 @@ class TextCNN(object):
             losses_y_text = tf.contrib.legacy_seq2seq.sequence_loss_by_example([self.scores_y_text],
                                                                                [tf.reshape(self.input_y_text, [-1])],
                                                                                [tf.reshape(self.mask_y_text, [-1])])
-            self.loss = 2*sequence_length * tf.reduce_mean(losses) + tf.reduce_mean(losses_y_text) + l2_reg_lambda * l2_loss
+            self.loss = 10 * tf.reduce_mean(losses) + tf.reduce_mean(losses_y_text) + l2_reg_lambda * l2_loss
 
         # Accuracy
         with tf.name_scope("accuracy"):
